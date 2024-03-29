@@ -22,7 +22,7 @@ To install FAVITES-Lite itself, you can either download the latest [release](htt
 git clone https://github.com/niemasd/FAVITES-Lite.git
 ```
 
-FAVITES-Lite is also available on [Bioconda](https://bioconda.github.io/recipes/favites_lite/README.html). Assuming you have already installed `conda` (or equivalent) and added the `bioconda` channel:
+FAVITES-Lite is also available on [Bioconda](https://bioconda.github.io/recipes/favites_lite/README.html). Assuming you have already installed `conda` (or equivalent) and added the `bioconda` channel, you can install FAVITES-Lite as well as all of its dependencies as follows:
 
 ```bash
 conda install favites_lite

@@ -22,6 +22,12 @@ To install FAVITES-Lite itself, you can either download the latest [release](htt
 git clone https://github.com/niemasd/FAVITES-Lite.git
 ```
 
+FAVITES-Lite is also available on [Bioconda](https://bioconda.github.io/recipes/favites_lite/README.html). Assuming you have already installed `conda` (or equivalent) and added the `bioconda` channel:
+
+```bash
+conda install favites_lite
+```
+
 For convenience, you can also use the [FAVITES-Lite Docker image](https://hub.docker.com/r/niemasd/favites_lite), or you can refer to the [`Dockerfile`](https://github.com/niemasd/FAVITES-Lite/blob/main/Dockerfile#L9-L42) for installation commands.
 
 ## Usage

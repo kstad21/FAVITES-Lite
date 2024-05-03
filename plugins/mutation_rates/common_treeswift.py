@@ -216,7 +216,6 @@ def treeswift_truncnorm(params, out_fn, config, GLOBAL, verbose=True):
     tree = read_tree_newick(out_fn['viral_phylogeny_time'])
     nodes = [node for node in tree.traverse_preorder() if node.edge_length is not None]
     rates = truncnorm_rvs(loc=mu, scale=sigma, a_min=a_min, b_max=b_max, size=len(nodes))
-    print('\n'.join(str(r) for r in rates)); exit() # TODO
     for i in range(len(nodes)):
         nodes[i].edge_length *= rates[i]
     tree.write_tree_newick(out_fn['viral_phylogeny_mut'])

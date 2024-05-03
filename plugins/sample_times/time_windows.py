@@ -6,7 +6,7 @@ try:
 except:
     error("Unable to import numpy. Install with: pip install numpy")
 try:
-    from scipy.stats import truncexpon, truncnorm
+    from scipy.stats import truncexpon
 except:
     error("Unable to import scipy. Install with: pip install scipy")
 
@@ -28,8 +28,7 @@ def time_windows(model, params, out_fn, config, GLOBAL, verbose=True):
     if model == "Truncated Exponential":
         variates = list(truncexpon.rvs(1, size=tot_num_samples))
     elif model == "Truncated Normal":
-        corrected_min = (0-params['mu'])/params['sigma']; corrected_max = (1-params['mu'])/params['sigma']
-        variates = list(truncnorm.rvs(corrected_min, corrected_max, loc=params['mu'], scale=params['sigma'], size=tot_num_samples))
+        variates = list(truncnorm_rvs(loc=params['mu'], scale=params['sigma'], a_min=0, b_max=1, size=tot_num_samples))
     for node in windows:
         for _ in range(params['num_samples']):
             state, start, end = choice(windows[node]); length = end - start; delta = None

@@ -1,4 +1,4 @@
-# FAVITES Configuration File for COVID in Wuhan, 2020
+# FAVITES Configuration File for COVID in Wuhan, late 2019 through early 2020
 
 ## Contact Network:
 #### Through nodes (people) and edges (interactions), describe social interaction.

@@ -1,4 +1,4 @@
-# FAVITES Configuration File for MSM Population in San Diego, 2017
+# FAVITES Configuration File for MSM Population in San Diego, 2016 through 2024
 
 ## Contact Network:
 #### Through nodes (people) and edges (interactions), describe social interactions.

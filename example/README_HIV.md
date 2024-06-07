@@ -26,7 +26,7 @@ ___
 - Nodes at the start are either susceptible or infected in this configuration file. This can be easily changed to include numbers of people in any of the above states.
 #### R_S-I1: `2`
 - Transition rate from susceptible to infected stage 1.
-- Based on MSM populations [(Grey et al., 2016)](https://publichealth.jmir.org/2016/1/e14/), with San Diego County's estimation being 1,204,728. Between 2017 and 2021 in California, an average of 70% of new diagnoses came from male-to-male sexual contact (MMSC) [(California HIV Suveillance Report - 2021)](https://www.cdph.ca.gov/Programs/CID/DOA/CDPH%20Document%20Library/California_HIV_Surveillance_Report2021_ADA.pdf). In 2021, there were 379 new HIV diagnoses in San Diego [(California HIV Surveillance Report - 2021)](https://www.cdph.ca.gov/Programs/CID/DOA/CDPH%20Document%20Library/California_HIV_Surveillance_Report2021_ADA.pdf). So out of 379 diagnoses and an estimated 70% of those coming from MMSC, we can estimate there are about 265 diagnoses for MSM. Looking at the whole population: 265/1,204,728 = 0.00022. Scaling this to our chosen number of nodes: $`10,000 * 0.00022 = 2.2`$ diagnoses a year. In a Poisson distribution, the expected value (2) will be equal to the reciprocal of the time until next arrival.
+- Calculate the expected value of new HIV diagnoses out of a population of 10,000 susceptible individuals in the San Diego MSM community. We used an MSM population estimate of 80,968 in San Diego 2016 [(Grey et al., 2016)](https://publichealth.jmir.org/2016/1/e14/) and a count of 321 diagnoses in San Diego in 2016 as a result of male-male sexual contact, or MMSC [(HIV/AIDS EPIDEMIOLOGY REPORT—2016)](https://www.sandiegocounty.gov/content/dam/sdc/hhsa/programs/phs/documents/EpiReport2017final.pdf). By dividing the number of diagnoses by the estimated susceptible population (in our case, the MSM population in San Diego), and multiplying by our desired number of individuals for our network, we estimated (321/80,968) * 10,000 = 39.645 diagnoses in San Diego in 2016 as a result of MMSC, in a pool of 10,000 susceptible individuals. In a Poisson distribution, the expected value (~40) will be equal to the reciprocal of the time until next arrival.
 #### R_S-I1_I1: `0.1125`
 - The transition rate from susceptible to infected stage 1 induced by infected stage 1 neighbors. 
 - In the [FAVITES](https://academic.oup.com/bioinformatics/article/35/11/1852/5161084) paper, relative rates were scaled so that number of new cases over ten years was roughly accurate. This yielded a rate of infectiousness 0.1125. Expected time for arrival would be $`1/(0.1125 * n)`$, n being the number of nodes in state I1 that are neighbors to the current node.
@@ -107,11 +107,11 @@ ___
 
 ## Sample Times: 
 #### How are individuals in the transmission network sampled?
-#### Model: `End`
+#### Model: `State Entry (Initial)`
 - End was chosen to get a good idea of every node's state at the end of the simulation.
-#### sampled_states: `I1,I2,I3,I4,A1,A2,A3,A4`
+#### sampled_states: `A1,A2,A3,A4`
 - Comma-separated list of states in which individuals are sampled.
-- For this configuration, all states were sampled to get as much information as possible.
+- Each individual was sampled when they started ART [(Moshiri et al., 2021)](https://doi.org/10.1097/QAI.0000000000002612).
 #### num_samples: `1`
 - With this sampling configuration, we choose to sample every single individual once at the end of the simulation.
 
